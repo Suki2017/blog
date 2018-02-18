@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dganzh</title>
+
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/vs.css' %}">
+    <script src="{% static 'blog/js/jquery-2.1.3.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/my.js' %}"></script>
+    {% block otherblock %}{% endblock %}
+
+</head>
+<body>
+{% csrf_token %}
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="id-close-login-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel" style="text-align:center">欢迎登录</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div id="id-modal-input" class="input-group input-group-lg" style="width:400px;margin:15px auto">
+              <div class="login-modal-user">
+                  <input id="id-login-modal-user" style="height:55px; font-size:20px;" type="text" class="form-control" placeholder="手机号或邮箱" aria-describedby="sizing-addon2">
+              </div>
+              <div class="login-modal-pwd">
+                  <input id="id-login-modal-pwd" style="height:55px; font-size:20px; margin-top:15px;" type="password" class="form-control" placeholder="密码" aria-describedby="sizing-addon2">
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-lg" id="modal-login">登录</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="id-close-register-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel" style="text-align:center">欢迎注册</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="input-group input-group-lg" style="width:400px;margin:15px auto">
+              <div class="register-modal-user">
+                  <input id="id-register-modal-user" style="height:55px; font-size:20px;" type="text" class="form-control" placeholder="邮箱" aria-describedby="sizing-addon2">
+              </div>
+              <div class="register-modal-pwd">
+                  <input id="id-register-modal-pwd" style="height:55px; font-size:20px; margin-top:15px;" type="password" class="form-control" placeholder="密码" aria-describedby="sizing-addon2">
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-lg" id="modal-register">注册</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="container-fluid">
+  <div class="row row-header-top">
+      <h1 class="nickname">Dganzh <span class="realname"> 周定安的小窝</span></h1>
+      <span class="message">即使生活给了我一地鸡毛,我也要把它扎成漂亮的鸡毛掸子</span>
+  </div>
+    <div class="row row-header-bar">
+        <div class="row header-bar">
+            <ul class="col-md-8 row header-bar-left">
+                {% if position == 'index' %}
+                    <li class="col-md-1" style="background: #27ccc0;"><a href="/">首页</a></li>
+                {% else %}
+                    <li class="col-md-1"><a href="/">首页</a></li>
+                {% endif %}
+                {% if position == 'posts' %}
+                    <li class="col-md-2 tech" style="background: #27ccc0;"><div class="tech-title"><a href="{% url 'blog:posts' %}">技术文章</a></div>
+                    <ul class="tech-content">
+                        <li><a href="{% url 'blog:category-post' 1026 %}">Python</a></li>
+                        <li><a href="{% url 'blog:category-post' 1027 %}">算法</a></li>
+                        <li><a href="{% url 'blog:category-post' 1028 %}">数据库</a></li>
+                        <li><a href="{% url 'blog:category-post' 1029 %}">后端</a></li>
+                        <li><a href="{% url 'blog:category-post' 1030 %}">前端</a></li>
+                        <li><a href="{% url 'blog:category-post' 1031 %}">Linux</a></li>
+                        <li><a href="{% url 'blog:category-post' 1032 %}">其他</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                    <li class="col-md-2 tech"><div class="tech-title"><a href="{% url 'blog:posts' %}">技术文章</a></div>
+                    <ul class="tech-content">
+                        <li><a href="{% url 'blog:category-post' 1026 %}">Python</a></li>
+                        <li><a href="{% url 'blog:category-post' 1027 %}">算法</a></li>
+                        <li><a href="{% url 'blog:category-post' 1028 %}">数据库</a></li>
+                        <li><a href="{% url 'blog:category-post' 1029 %}">后端</a></li>
+                        <li><a href="{% url 'blog:category-post' 1030 %}">前端</a></li>
+                        <li><a href="{% url 'blog:category-post' 1031 %}">Linux</a></li>
+                        <li><a href="{% url 'blog:category-post' 1032 %}">其他</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% if position == 'notes' %}
+                    <li class="col-md-2" style="background: #27ccc0;"><a href="{% url 'blog:notes' %}">个人笔记</a></li>
+                {% else %}
+                    <li class="col-md-2"><a href="{% url 'blog:notes' %}">个人笔记</a></li>
+                {% endif %}
+                {% if position == 'thinks' %}
+                    <li class="col-md-2" style="background: #27ccc0;"><a href="{% url 'blog:thinks' %}">生活感悟</a></li>
+                {% else %}
+                    <li class="col-md-2"><a href="{% url 'blog:thinks' %}">生活感悟</a></li>
+                {% endif %}
+                {% if position == 'message' %}
+                    <li class="col-md-2" style="background: #27ccc0;"><a href="{% url 'blog:message' %}">给我留言</a></li>
+                {% else %}
+                    <li class="col-md-2"><a href="{% url 'blog:message' %}">给我留言</a></li>
+                {% endif %}
+                {% if position == 'about' %}
+                    <li class="col-md-2" style="background: #27ccc0;"><a href="{% url 'blog:about' %}">关于本站</a></li>
+                {% else %}
+                    <li class="col-md-2"><a href="{% url 'blog:about' %}">关于本站</a></li>
+                {% endif %}
+            </ul>
+            <div class="col-md-4 row header-bar-right-box">
+            <div class="header-bar-right">
+            <div class="input-group search-box">
+              <input type="text" class="form-control search-text" placeholder="Search for...">
+              <span class="input-group-btn search-span">
+                <button class="btn btn-primary search-btn" type="button">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+              </span>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="row notice-board">
+            <div class="col-md-9 notice-left">
+                <span class="glyphicon glyphicon-volume-up notice-icon" aria-hidden="true"></span>
+                <span class="notice-text">&nbsp;&nbsp;博主发表最新文章<a href="{{  new_post.get_absolute_url }}">《{{ new_post.short_title }}》</a></span>
+            </div>
+            <div class="col-md-3 notice-right">
+                {% if user.is_authenticated %}
+                    <div class="btn-group" style="margin-right:25px;">
+                        <button type="button" href="#" class="thumbnail dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-bottom:0">
+                            <img src="{% static 'users/admin.jpg' %}"></button>
+                        <ul class="dropdown-menu">
+                            <li><span class="glyphicon glyphicon-user"><a href="#">我的主页</a></span></li>
+                            <li><span class="glyphicon glyphicon-edit"><a href="#">写文章</a></span></li>
+                            <li><span class="glyphicon glyphicon-off"><a href="{% url 'logout' %}?next={{ request.path }}">退出</a></span></li>
+                        </ul>
+                    </div>
+
+                    <span class="glyphicon glyphicon-off">
+                        <a href="{% url 'logout' %}?next={{ request.path }}"> 退出</a>
+                    </span>
+                {% else %}
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span style="margin-right:25px;">
+                        <a href="#" data-toggle="modal" data-target="#registerModal">注册</a>
+                    </span>
+                    <span class="glyphicon glyphicon-off"></span>
+                    <span>
+                        <a href="#" data-toggle="modal" data-target="#loginModal"> 登录</a>
+{#                        <a href="{% url 'login' %}?next={{ request.path }}"> 登录</a>#}
+                    </span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container container-main">
+    <div class="row content-main">
+        <div class="col-md-9 main">
+            {% block post-content %} {% endblock %}
+            {% block post-list %} {% endblock %}
+        </div>
+        {% block side-bar %} {% endblock %}
+    </div>
+</div>
+</body>
+</html>
