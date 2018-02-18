@@ -1,0 +1,30 @@
+#upload-image-box {
+    width:500px;
+    margin:auto;
+    top:200px;
+    display: flex;
+    justify-content: center;
+}
+
+#upload-image-box > .label {
+    width: 80px;
+    border-color: #00b38a;
+}
+
+#upload-image-box > .label > a{
+    text-decoration: none;
+    color: #fbfbfb;
+}
+
+#upload-image-box > .label:hover{
+    background: #1b8c84;
+}
+
+#upload-image-box > input {
+    display: inline;
+}
+
+#img-file {
+    padding:0 16px;
+}
+

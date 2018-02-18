@@ -5,8 +5,6 @@ venv
 .coverage
 local_settings.py
 *.log
-/static
-/weshare/static
 db.sqlite3*
 *.txt
 node_modules
