@@ -1,0 +1,4 @@
+Django==1.10
+Markdown==2.6.11
+PyMySQL==0.7.11
+pytz==2018.3

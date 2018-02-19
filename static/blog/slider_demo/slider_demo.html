@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Slider.js 使用示例</title>
+	 <!--jquery库文件放在最前面-->
+    <script type="text/javascript" src="lib/jquery-1.9.0.min.js"></script>
+    <!--Slider插件-->	
+    <script type="text/javascript" src="lib/slider.js"></script>
+    <link href="lib/slider.min.css" rel="stylesheet" type="text/css" /> 
+	<!--引用相册脚本-->
+    <script type="text/javascript" src="slider_demo.js"></script>		
+	<!--控制页面布局的CSS样式-->
+    <style type="text/css">       	    
+      body {
+        font-family: Delicious;
+      }
+      html, body {
+        margin: 0; padding: 0;
+        background: white;
+        color: black;
+      }
+      nav a {
+        color: black;
+      }
+      #container {
+        margin: 50px auto;
+        width: 600px;
+      }
+    </style>
+  </head>
+
+<body>
+  <div id="container">
+    <nav>
+	   <!--导航栏-->
+      <a href="#">Slider.js幻灯片示例</a>
+    </nav>
+	<!--相册标题-->
+    <h1>我的生活相册</h1>
+	 <!--相册容器-->	
+    <div id="slider"></div>
+
+  </div>
+</body>
+</html>
+
+

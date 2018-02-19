@@ -1,0 +1,14 @@
+﻿[
+  { "src" : "static/blog/slider_demo/images/pic1.jpg", "name": "风景如画的城市夜景", "link": "http://www.baidu.com/" },
+  { "src" : "static/blog/slider_demo/images/pic2.jpg", "name": "城市夜景", "link": "http://www.baidu.com/" },
+  { "src" : "static/blog/slider_demo/images/pic3.jpg", "name": "黄昏时分", "link": "http://www.baidu.com/" },
+  { "src" : "static/blog/slider_demo/images/pic4.jpg", "name": "火烧云", "link": "http://www.baidu.com/" },
+  { "src" : "static/blog/slider_demo/images/pic5.jpg", "name": "夜幕时分", "link": "http://www.baidu.com/" },
+  { "src" : "static/blog/slider_demo/images/pic6.jpg", "name": "夕阳西下", "link": "http://www.baidu.com/" },
+  { "src" : "static/blog/slider_demo/images/pic7.jpg", "name": "残柳夜风", "link": "http://www.baidu.com/" },
+  { "src" : "static/blog/slider_demo/images/pic8.jpg", "name": "热情似火", "link": "http://www.baidu.com/" },
+  { "src" : "static/blog/slider_demo/images/pic9.jpg", "name": "城市森林", "link": "http://www.baidu.com/" },
+  { "src" : "static/blog/slider_demo/images/pic10.jpg", "name": "晨曦时分", "link": "http://www.baidu.com/" },
+  { "src" : "static/blog/slider_demo/images/pic11.jpg", "name": "灯火之夜", "link": "http://www.baidu.com/" },
+  { "src" : "static/blog/slider_demo/images/pic12.jpg", "name": "森林之光", "link": "http://www.baidu.com/" }
+]

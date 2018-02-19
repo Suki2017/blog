@@ -1,0 +1,79 @@
+{% extends "blog/_base.html" %}
+
+{% block side-bar %}
+        <div class="col-md-3 side-right">
+            <div class="hot-box">
+                <span class="side-title">热门文章</span>
+                <div class="hot-main site-main">
+                {% for post in hot_posts %}
+                    {% if forloop.counter == 1 %}
+                    <h4 class="title-box hot-title-box" id="hot-post-1">
+                        <div>
+                            <span class="label label-danger">{{ forloop.counter }}</span>
+                            <a href="#">&nbsp;{{ post.short_title }}</a>
+                        </div>
+                        <div>
+                            <div class="glyphicon glyphicon-eye-open"><a href="#">{{ post.view_count }}浏览&nbsp;</a></div>
+                            <div class="glyphicon glyphicon-heart-empty"><a href="#">{{ post.likes }}喜欢</a></div>
+                        </div>
+                    </h4>
+                    {% else %}
+                    <h4 class="title-box hot-title-box">
+                        <div>
+                            <span class="label label-primary">{{ forloop.counter }}</span>
+                            <a href="#">&nbsp;{{ post.short_title }}</a>
+                        </div>
+                        <div>
+                            <div class="glyphicon glyphicon-eye-open"><a href="#">{{ post.view_count }}浏览&nbsp;</a></div>
+                            <div class="glyphicon glyphicon-heart-empty"><a href="#">{{ post.likes }}喜欢</a></div>
+                        </div>
+                    </h4>
+                    {% endif %}
+
+                {% endfor %}
+                </div>
+            </div>
+            <div class="subject-box">
+                <span class="side-title">专题系列</span>
+                <div class="subject-main site-main"></div>
+            </div>
+            <div class="pigeonhole-box">
+                <span class="side-title">文章归档</span>
+                <div class="pigeonhole-main site-main row">
+                    {% for name, date in pageonholes.items %}
+                        <div class="col-md-6"><a href="{{ date.0 }}">{{ name }}</a></div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="guesslike-box"><span class="side-title">猜你喜欢</span></div>
+            <div class="tagcloud-box">
+                <span class="side-title">标签云</span>
+                <div class="tagcloud-main site-main row">
+                    {% for name, info in tagclouds.items %}
+                        <div class="col-md-6 label label-{{ info.0 }}"><a href="#">{{ name }} ({{ info.1 }})</a></div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="friendlylink-box">
+                <span class="side-title">友情链接</span>
+                <div class="friendlink-main site-main row">
+                    {% for link in links %}
+                        <div class="col-md-6"><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="contact-box">
+                <span class="side-title">我的社交</span>
+                <div class="contacts-main site-main row">
+                    {% for contact in contacts %}
+                        <div class="col-md-3">
+                            <a href="{{ contact.site }}" class="thumbnail" target="_blank">
+                                <img src="{{ contact.img }}" alt="{{ contact.name }}" >
+                            </a>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endblock %}
