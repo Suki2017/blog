@@ -25,6 +25,29 @@ a:visited, a:focus{
     text-decoration: none;
 }
 
+<<<<<<< HEAD
+=======
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container-fluid .col-md-10 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+}
+
+.row {
+    margin-right: 0;
+}
+
+.navbar-default {
+    background: #d9534f;
+    border: none;
+}
+
+>>>>>>> origin/dev
 .row-header-top {
     height: 180px;
     background: #27ccc0;
@@ -44,6 +67,7 @@ a:visited, a:focus{
     font-size: 18px;
 }
 
+<<<<<<< HEAD
 
 .row-header-bar {
     height: 56px;
@@ -59,11 +83,49 @@ a:visited, a:focus{
 .header-bar-right-box, .header-bar-right{
     float: right;
     padding-left:0;
+=======
+.row-header-bar {
+    height: 56px;
+    background: #d9534f;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.header-bar {
+    /*margin: auto;*/
+    /*width: 85%;*/
+    font-size: 20px;
+}
+
+
+.header-bar-right-box, .header-bar-right{
+    float: right;
+    padding-left:0;
+    padding-right:0;
+>>>>>>> origin/dev
 }
 
 .header-bar-left, .header-bar-right {
     height: 56px;
     margin-bottom:0;
+<<<<<<< HEAD
+=======
+    padding: 0;
+}
+
+
+#navbar-menu > ul > li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar-menu > ul > li:hover{
+    color: #fff;
+    background: #27ccc0;
+>>>>>>> origin/dev
 }
 
 .header-bar-right {
@@ -87,6 +149,7 @@ a:visited, a:focus{
     color: #fff;
 }
 
+<<<<<<< HEAD
 .header-bar-left > li a:hover{
     color: #fff;
 }
@@ -95,6 +158,33 @@ a:visited, a:focus{
     background: #27ccc0;
 }
 
+=======
+.header-bar-left > li > a {
+    padding: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fbfbfb;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #27ccc0;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #27ccc0;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+    color: #fff;
+    background: #27ccc0;
+}
+
+/*.header-bar-left > li > a:hover{*/
+    /*background: #27ccc0 !important;*/
+/*}*/
+
+>>>>>>> origin/dev
 .tech {
     /*overflow: hidden;*/
     position: relative;
@@ -102,7 +192,12 @@ a:visited, a:focus{
 }
 
 .tech > ul > li {
+<<<<<<< HEAD
     height: 56px;
+=======
+    height: 40px;
+    line-height: 40px;
+>>>>>>> origin/dev
     /*display: none;*/
 }
 
@@ -113,6 +208,10 @@ a:visited, a:focus{
     position: absolute;
     display: none;
     left:-10%;
+<<<<<<< HEAD
+=======
+    top:56px;
+>>>>>>> origin/dev
     width: 100%;
 }
 
@@ -158,9 +257,15 @@ a:visited, a:focus{
 }
 
 .notice-board {
+<<<<<<< HEAD
     width:85%;
     height:45px;
     margin:auto;
+=======
+    /*width:85%;*/
+    height:45px;
+    /*margin:auto;*/
+>>>>>>> origin/dev
     background: #fbfbfb;
     margin-bottom: 10px;
 }
@@ -175,6 +280,7 @@ a:visited, a:focus{
 }
 
 .container-main {
+<<<<<<< HEAD
     width: 85%;
     padding: 0;
     margin: 10px auto;
@@ -186,6 +292,21 @@ a:visited, a:focus{
 
 .content-main > .col-md-3 {
     width: 33%;
+=======
+    /*width: 85%;*/
+    padding: 0;
+    /*margin: 10px auto;*/
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content-main > .col-md-9 {
+    /*width: 67%;*/
+}
+
+.content-main > .col-md-3 {
+    /*width: 33%;*/
+>>>>>>> origin/dev
 }
 
 .slide1 {
@@ -312,6 +433,17 @@ body a:hover {
     padding: 0 13px;
 }
 
+<<<<<<< HEAD
+=======
+.site-main div {
+    padding-left: 10px;
+}
+
+.hot-main div {
+    padding: 0;
+}
+
+>>>>>>> origin/dev
 .hot-title-box > div {
     display: flex;
     align-items: center;

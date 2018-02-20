@@ -13,6 +13,9 @@ docker-compose.yml
 .qiniu_pythonsdk_hostscache.json
 ws_logging/*
 settings.py
+*.out
+*.ini
+*.pid
 
 # ---> Python
 # Byte-compiled / optimized / DLL files
