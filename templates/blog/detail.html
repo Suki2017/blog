@@ -21,11 +21,11 @@
     </div>
     <div class="row post-footer detail-post-footer">
         <div class=" col-md-2 col-xs-5 visible-xs glyphicon glyphicon-eye-open"><a href="#">{{ post.view_count }}浏览</a></div>
-        <div class=" col-md-2 col-xs-5 visible-xs glyphicon glyphicon-comment"><a href="#">299条评论</a></div>
+        <div class=" col-md-2 col-xs-5 visible-xs glyphicon glyphicon-comment"><a href="#">{{ post.post_comments.count }}条评论</a></div>
     </div>
     <div class="row post-footer detail-post-footer">
-        <div class=" col-md-2 col-xs-5 visible-xs glyphicon glyphicon-star-empty"><a href="#">13感谢</a></div>
-        <div class=" col-md-2 col-xs-5 visible-xs glyphicon glyphicon-heart-empty"><a href="#">168喜欢</a></div>
+        <div class=" col-md-2 col-xs-5 visible-xs glyphicon glyphicon-star-empty"><a href="#">{{ post.thanks }}感谢</a></div>
+        <div class=" col-md-2 col-xs-5 visible-xs glyphicon glyphicon-heart-empty"><a href="#">{{ post.likes }}喜欢</a></div>
     </div>
     <div class="row post-footer detail-post-footer">
         {% for tag in post.tags.all %}
