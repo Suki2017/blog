@@ -72,76 +72,89 @@
 <div class="container-fluid">
   <div class="row row-header-top">
       <h1 class="nickname">Dganzh <span class="realname"> 周定安的小窝</span></h1>
-      <span class="message">即使生活给了我一地鸡毛,我也要把它扎成漂亮的鸡毛掸子</span>
+      <span class="message hidden-xs hidden-sm">即使生活给了我一地鸡毛,我也要把它扎成漂亮的鸡毛掸子</span>
   </div>
-    <div class="row row-header-bar">
-        <div class="row header-bar">
-            <ul class="col-md-8 row header-bar-left">
-                {% if position == 'index' %}
-                    <li class="col-md-1" style="background: #27ccc0;"><a href="/">首页</a></li>
+
+  <div class="row row-header-bar">
+      <nav class=" col-md-10 col-md-offset-1 navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="col-md-8 collapse navbar-collapse" id="navbar-menu">
+          <ul class="col-md-12 header-bar-left nav navbar-nav navbar-left">
+{% if position == 'index' %}
+                    <li class="col-md-1 hidden-sm col-xs-12 header-tab" style="background: #27ccc0;"><a href="/">首页</a></li>
                 {% else %}
-                    <li class="col-md-1"><a href="/">首页</a></li>
+                    <li class="col-md-1 hidden-sm col-xs-12 header-tab"><a href="/">首页</a></li>
                 {% endif %}
                 {% if position == 'posts' %}
-                    <li class="col-md-2 tech" style="background: #27ccc0;"><div class="tech-title"><a href="{% url 'blog:posts' %}">技术文章</a></div>
+                    <li class="col-md-2 hidden-sm col-xs-12 tech" style="background: #27ccc0;"><div class="tech-title"><a href="{% url 'blog:posts' %}">技术文章</a></div>
                     <ul class="tech-content">
-                        <li><a href="{% url 'blog:category-post' 1026 %}">Python</a></li>
-                        <li><a href="{% url 'blog:category-post' 1027 %}">算法</a></li>
-                        <li><a href="{% url 'blog:category-post' 1028 %}">数据库</a></li>
-                        <li><a href="{% url 'blog:category-post' 1029 %}">后端</a></li>
-                        <li><a href="{% url 'blog:category-post' 1030 %}">前端</a></li>
-                        <li><a href="{% url 'blog:category-post' 1031 %}">Linux</a></li>
-                        <li><a href="{% url 'blog:category-post' 1032 %}">其他</a></li>
+                        <li class="col-xs-12"><a href="{% url 'blog:category-post' 1026 %}">Python</a></li>
+                        <li class="col-xs-12"><a href="{% url 'blog:category-post' 1027 %}">算法</a></li>
+                        <li class="col-xs-12"><a href="{% url 'blog:category-post' 1028 %}">数据库</a></li>
+                        <li class="col-xs-12"><a href="{% url 'blog:category-post' 1029 %}">后端</a></li>
+                        <li class="col-xs-12"><a href="{% url 'blog:category-post' 1030 %}">前端</a></li>
+                        <li class="col-xs-12"><a href="{% url 'blog:category-post' 1031 %}">Linux</a></li>
+                        <li class="col-xs-12"><a href="{% url 'blog:category-post' 1032 %}">其他</a></li>
                     </ul>
                 </li>
                 {% else %}
-                    <li class="col-md-2 tech"><div class="tech-title"><a href="{% url 'blog:posts' %}">技术文章</a></div>
+                    <li class="col-md-2 hidden-sm col-xs-12 tech"><div class="tech-title"><a href="{% url 'blog:posts' %}">技术文章</a></div>
                     <ul class="tech-content">
-                        <li><a href="{% url 'blog:category-post' 1026 %}">Python</a></li>
-                        <li><a href="{% url 'blog:category-post' 1027 %}">算法</a></li>
-                        <li><a href="{% url 'blog:category-post' 1028 %}">数据库</a></li>
-                        <li><a href="{% url 'blog:category-post' 1029 %}">后端</a></li>
-                        <li><a href="{% url 'blog:category-post' 1030 %}">前端</a></li>
-                        <li><a href="{% url 'blog:category-post' 1031 %}">Linux</a></li>
-                        <li><a href="{% url 'blog:category-post' 1032 %}">其他</a></li>
+                        <li><a class="col-xs-12" href="{% url 'blog:category-post' 1026 %}">Python</a></li>
+                        <li><a class="col-xs-12" href="{% url 'blog:category-post' 1027 %}">算法</a></li>
+                        <li><a class="col-xs-12" href="{% url 'blog:category-post' 1028 %}">数据库</a></li>
+                        <li><a class="col-xs-12" href="{% url 'blog:category-post' 1029 %}">后端</a></li>
+                        <li><a class="col-xs-12" href="{% url 'blog:category-post' 1030 %}">前端</a></li>
+                        <li><a class="col-xs-12" href="{% url 'blog:category-post' 1031 %}">Linux</a></li>
+                        <li><a class="col-xs-12" href="{% url 'blog:category-post' 1032 %}">其他</a></li>
                     </ul>
                 </li>
                 {% endif %}
                 {% if position == 'notes' %}
-                    <li class="col-md-2" style="background: #27ccc0;"><a href="{% url 'blog:notes' %}">个人笔记</a></li>
+                    <li class="col-md-2 hidden-sm col-xs-12 header-tab" style="background: #27ccc0;"><a href="{% url 'blog:notes' %}">个人笔记</a></li>
                 {% else %}
-                    <li class="col-md-2"><a href="{% url 'blog:notes' %}">个人笔记</a></li>
+                    <li class="col-md-2 hidden-sm col-xs-12 header-tab"><a href="{% url 'blog:notes' %}">个人笔记</a></li>
                 {% endif %}
                 {% if position == 'thinks' %}
-                    <li class="col-md-2" style="background: #27ccc0;"><a href="{% url 'blog:thinks' %}">生活感悟</a></li>
+                    <li class="col-md-2 hidden-sm col-xs-12 header-tab" style="background: #27ccc0;"><a href="{% url 'blog:thinks' %}">生活感悟</a></li>
                 {% else %}
-                    <li class="col-md-2"><a href="{% url 'blog:thinks' %}">生活感悟</a></li>
+                    <li class="col-md-2 hidden-sm col-xs-12 header-tab"><a href="{% url 'blog:thinks' %}">生活感悟</a></li>
                 {% endif %}
                 {% if position == 'message' %}
-                    <li class="col-md-2" style="background: #27ccc0;"><a href="{% url 'blog:message' %}">给我留言</a></li>
+                    <li class="col-md-2 hidden-sm col-xs-12 header-tab" style="background: #27ccc0;"><a href="{% url 'blog:message' %}">给我留言</a></li>
                 {% else %}
-                    <li class="col-md-2"><a href="{% url 'blog:message' %}">给我留言</a></li>
+                    <li class="col-md-2 hidden-sm col-xs-12 header-tab"><a href="{% url 'blog:message' %}">给我留言</a></li>
                 {% endif %}
                 {% if position == 'about' %}
-                    <li class="col-md-2" style="background: #27ccc0;"><a href="{% url 'blog:about' %}">关于本站</a></li>
+                    <li class="col-md-2 hidden-sm col-xs-12 header-tab" style="background: #27ccc0;"><a href="{% url 'blog:about' %}">关于本站</a></li>
                 {% else %}
-                    <li class="col-md-2"><a href="{% url 'blog:about' %}">关于本站</a></li>
+                    <li class="col-md-2 hidden-sm col-xs-12 header-tab"><a href="{% url 'blog:about' %}">关于本站</a></li>
                 {% endif %}
-            </ul>
-            <div class="col-md-4 row header-bar-right-box">
-            <div class="header-bar-right">
-            <div class="input-group search-box">
-              <input type="text" class="form-control search-text" placeholder="Search for...">
-              <span class="input-group-btn search-span">
-                <button class="btn btn-primary search-btn" type="button">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                </button>
-              </span>
+          </ul>
+        </div>
+          <div class="col-md-4 row header-bar-right-box">
+                <div class="header-bar-right hidden-xs hidden-sm">
+                    <div class="input-group search-box">
+                      <input type="text" class="form-control search-text" placeholder="Search for...">
+                      <span class="input-group-btn search-span">
+                        <button class="btn btn-primary search-btn" type="button">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                      </span>
+                    </div>
+                </div>
             </div>
-        </div>
-        </div>
-        </div>
-        <div class="row notice-board">
+    </nav>
+</div>
+        <div class="row notice-board col-md-10 col-md-offset-1 hidden-xs hidden-sm">
             <div class="col-md-9 notice-left">
                 <span class="glyphicon glyphicon-volume-up notice-icon" aria-hidden="true"></span>
                 <span class="notice-text">&nbsp;&nbsp;博主发表最新文章<a href="{{  new_post.get_absolute_url }}">《{{ new_post.short_title }}》</a></span>
@@ -174,11 +187,11 @@
                 {% endif %}
             </div>
         </div>
-    </div>
 </div>
-<div class="container container-main">
+
+<div class="container container-main col-md-10 col-md-offset-1 col-xs-12  ">
     <div class="row content-main">
-        <div class="col-md-9 main">
+        <div class="col-md-9 col-xs-12 col-xs- main">
             {% block post-content %} {% endblock %}
             {% block post-list %} {% endblock %}
         </div>

@@ -1,7 +1,7 @@
 {% extends "blog/_base.html" %}
 
 {% block side-bar %}
-        <div class="col-md-3 side-right">
+        <div class="col-md-3 col-xs-12 side-right">
             <div class="hot-box">
                 <span class="side-title">热门文章</span>
                 <div class="hot-main site-main">
@@ -13,8 +13,9 @@
                             <a href="#">&nbsp;{{ post.short_title }}</a>
                         </div>
                         <div>
-                            <div class="glyphicon glyphicon-eye-open"><a href="#">{{ post.view_count }}浏览&nbsp;</a></div>
-                            <div class="glyphicon glyphicon-heart-empty"><a href="#">{{ post.likes }}喜欢</a></div>
+                            <div class="glyphicon glyphicon-eye-open"><a href="#">{{ post.view_count }}<span class="hidden-xs hidden-sm">浏览</span></a></div>
+                            <span>&nbsp</span>
+                            <div class="glyphicon glyphicon-heart-empty"><a href="#">{{ post.likes }}<span class="hidden-xs hidden-sm">喜欢</span></a></div>
                         </div>
                     </h4>
                     {% else %}
@@ -24,8 +25,9 @@
                             <a href="#">&nbsp;{{ post.short_title }}</a>
                         </div>
                         <div>
-                            <div class="glyphicon glyphicon-eye-open"><a href="#">{{ post.view_count }}浏览&nbsp;</a></div>
-                            <div class="glyphicon glyphicon-heart-empty"><a href="#">{{ post.likes }}喜欢</a></div>
+                            <div class="glyphicon glyphicon-eye-open"><a href="#">{{ post.view_count }}<span class="hidden-xs hidden-sm">浏览</span></a></div>
+                            <span>&nbsp</span>
+                            <div class="glyphicon glyphicon-heart-empty"><a href="#">{{ post.likes }}<span class="hidden-xs hidden-sm">喜欢</span></a></div>
                         </div>
                     </h4>
                     {% endif %}
@@ -41,7 +43,7 @@
                 <span class="side-title">文章归档</span>
                 <div class="pigeonhole-main site-main row">
                     {% for name, date in pageonholes.items %}
-                        <div class="col-md-6"><a href="{{ date.0 }}">{{ name }}</a></div>
+                        <div class="col-md-6 col-xs-5"><a href="{{ date.0 }}">{{ name }}</a></div>
                     {% endfor %}
                 </div>
             </div>
@@ -50,7 +52,7 @@
                 <span class="side-title">标签云</span>
                 <div class="tagcloud-main site-main row">
                     {% for name, info in tagclouds.items %}
-                        <div class="col-md-6 label label-{{ info.0 }}"><a href="#">{{ name }} ({{ info.1 }})</a></div>
+                        <div class="col-md-6 col-xs-5 label label-{{ info.0 }}"><a href="#">{{ name }} ({{ info.1 }})</a></div>
                     {% endfor %}
                 </div>
             </div>
@@ -58,7 +60,7 @@
                 <span class="side-title">友情链接</span>
                 <div class="friendlink-main site-main row">
                     {% for link in links %}
-                        <div class="col-md-6"><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></div>
+                        <div class="col-md-6 col-xs-5"><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></div>
                     {% endfor %}
                 </div>
             </div>
@@ -66,7 +68,7 @@
                 <span class="side-title">我的社交</span>
                 <div class="contacts-main site-main row">
                     {% for contact in contacts %}
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-xs-3">
                             <a href="{{ contact.site }}" class="thumbnail" target="_blank">
                                 <img src="{{ contact.img }}" alt="{{ contact.name }}" >
                             </a>

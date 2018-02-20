@@ -18,19 +18,19 @@
 {% for post in posts %}
 <div class="row post-card">
     <h3 class="title-box"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-        <span class="label label-danger post-label"><a href="{% url 'blog:category-post' post.category_id %}">{{ post.category }}</a></span>
+        <span class="label label-danger post-label hidden-xs hidden-sm"><a href="{% url 'blog:category-post' post.category_id %}">{{ post.category }}</a></span>
     </h3>
     <div class="row post-main">
-        <div class="col-xs-6 col-md-3 post-img">
+        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 post-img">
             <div class="thumbnail">
                 <img src="{{ post.cover_image }}" alt="None" />
             </div>
         </div>
-        <div class="col-xs-6 col-md-9">
+        <div class="col-xs-8 col-md-9 col-lg-9">
             <p>{{ post.excerpt }}</p>
         </div>
     </div>
-    <div class="row post-footer" id="{{ post.id }}">
+    <div class="row post-footer hidden-xs hidden-sm" id="{{ post.id }}">
         <div class="glyphicon glyphicon-user"><a href="#">{{ post.author.info.name }}</a></div>
         <div class="glyphicon glyphicon-time">{{ post.get_relative_time }}</div>
         <div class="glyphicon glyphicon-eye-open">{{ post.view_count }}浏览</div>
