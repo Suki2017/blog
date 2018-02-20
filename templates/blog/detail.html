@@ -4,21 +4,33 @@
 
 {% block post-content %}
 <div class="row post-card post-detail">
-    <h3 class="title-box"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-    <div class="row post-footer">
-        <div class="glyphicon glyphicon-user"><a href="#">{{ post.author.info.name }}</a></div>
-        <div class="glyphicon glyphicon-time"><a href="#">{{ post.get_relative_time }}</a></div>
-        <div class="glyphicon glyphicon-eye-open"><a href="#">{{ post.view_count }}浏览</a></div>
-        <div class="glyphicon glyphicon-comment"><a href="#">299条评论</a></div>
-        <div class="glyphicon glyphicon-share"><a href="#">分享</a></div>
-        <div class="glyphicon glyphicon-star-empty"><a href="#">13感谢</a></div>
-        <div class="glyphicon glyphicon-heart-empty"><a href="#">168喜欢</a></div>
-        {% for tag in post.tags.all %}
-            <span class="label label-danger tag-label"><a href="#">{{ tag }}</a></span>
-        {% endfor %}
+    <h3 class="title-box" style="padding-left:0;"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+    <div class="row post-footer detail-post-footer">
+        <div class="col-xs-4 col-md-2 glyphicon glyphicon-user"><a href="#">{{ post.author.info.name }}</a></div>
+        <div class="col-xs-4 col-md-2 glyphicon glyphicon-time"><a href="#">{{ post.get_relative_time }}</a></div>
+        <div class="col-xs-4 col-md-2 hidden-xs glyphicon glyphicon-eye-open"><a href="#">{{ post.view_count }}浏览</a></div>
+        <div class="col-xs-4 col-md-3 hidden-xs glyphicon glyphicon-comment"><a href="#">299条评论</a></div>
+    </div>
+    <div class="row post-footer detail-post-footer">
+        <div class="col-xs-4 col-md-2 hidden-xs glyphicon glyphicon-share"><a href="#">分享</a></div>
+        <div class="col-xs-4 col-md-2 hidden-xs glyphicon glyphicon-star-empty"><a href="#">13感谢</a></div>
+        <div class="col-xs-4 col-md-2 hidden-xs glyphicon glyphicon-heart-empty"><a href="#">168喜欢</a></div>
     </div>
     <div class="post-main">
         {{ post.body|safe }}
+    </div>
+    <div class="row post-footer detail-post-footer">
+        <div class=" col-md-2 col-xs-5 visible-xs glyphicon glyphicon-eye-open"><a href="#">{{ post.view_count }}浏览</a></div>
+        <div class=" col-md-2 col-xs-5 visible-xs glyphicon glyphicon-comment"><a href="#">299条评论</a></div>
+    </div>
+    <div class="row post-footer detail-post-footer">
+        <div class=" col-md-2 col-xs-5 visible-xs glyphicon glyphicon-star-empty"><a href="#">13感谢</a></div>
+        <div class=" col-md-2 col-xs-5 visible-xs glyphicon glyphicon-heart-empty"><a href="#">168喜欢</a></div>
+    </div>
+    <div class="row post-footer detail-post-footer">
+        {% for tag in post.tags.all %}
+            标签：<span class="col-md-2 col-xs-4 label label-danger tag-label"><a href="#">{{ tag }}</a></span>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

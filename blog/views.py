@@ -40,6 +40,8 @@ def posts(request):
 
 def detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
+    post.view_count += 1
+    post.save()
     post.body = markdown.markdown(post.body,
                                   extensions=['markdown.extensions.extra',
                                               'markdown.extensions.codehilite',

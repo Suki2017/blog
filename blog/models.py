@@ -33,8 +33,8 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=80)
     body = models.TextField()
-    created_time = models.DateTimeField(auto_now=True)
-    update_time = models.DateTimeField(auto_now=True)
+    created_time = models.DateTimeField()
+    update_time = models.DateTimeField()
     category = models.ForeignKey(Category, related_name='category_posts')
     tags = models.ManyToManyField(Tag, related_name='tag_posts')
     excerpt = models.CharField(max_length=255, blank=True)
@@ -110,8 +110,8 @@ class Post(models.Model):
 class Note(models.Model):
     title = models.CharField(max_length=80)
     body = models.TextField()
-    created_time = models.DateTimeField(auto_now=True)
-    update_time = models.DateTimeField(auto_now=True)
+    created_time = models.DateTimeField()
+    update_time = models.DateTimeField()
     category = models.ForeignKey(Category, related_name='category_notes')
     tags = models.ManyToManyField(Tag, related_name='tag_notes')
     view_count = models.IntegerField(default=0)
@@ -163,8 +163,8 @@ class Contact(models.Model):
 class Comment(models.Model):
     author = models.ForeignKey(User, related_name='author_comments')
     body = models.TextField()
-    created_time = models.DateTimeField(auto_now=True)
-    update_time = models.DateTimeField(auto_now=True)
+    created_time = models.DateTimeField()
+    update_time = models.DateTimeField()
     praises = models.IntegerField(default=0, help_text='点赞数')
     post = models.ForeignKey(Post, related_name='post_comments')
 

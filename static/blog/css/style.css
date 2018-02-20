@@ -314,7 +314,7 @@ body a:hover {
 
 .post-footer {
     width: 100%;
-    height:40px;
+    height: auto;
     display: flex;
     align-items: center;
     margin:0 0 0 15px;
@@ -422,7 +422,7 @@ body a:hover {
 }
 
 .post-detail {
-    padding: 0 30px;
+    padding: 0 3%;
 }
 
 .modal-footer {
@@ -445,6 +445,15 @@ body a:hover {
     align-items: center;
 }
 
+.detail-post-footer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0 !important;
+}
 
+.detail-post-footer > div {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 
