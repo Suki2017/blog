@@ -5,12 +5,6 @@
 {% block post-content %}
 <div class="row post-card post-detail">
     <h3 class="title-box" style="padding-left:0;"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-    <div class="row post-footer detail-post-footer">
-        <div class="col-xs-4 col-md-2 glyphicon glyphicon-user"><a href="#">{{ post.author.info.name }}</a></div>
-        <div class="col-xs-4 col-md-2 glyphicon glyphicon-time"><a href="#">{{ post.get_relative_time }}</a></div>
-        <div class="col-xs-4 col-md-2 hidden-xs glyphicon glyphicon-eye-open"><a href="#">{{ post.view_count }}浏览</a></div>
-{#        <div class="col-xs-4 col-md-3 hidden-xs glyphicon glyphicon-comment"><a href="#">{{ post.post_comments.count }}条评论</a></div>#}
-    </div>
 {#    <div class="row post-footer detail-post-footer">#}
 {#        <div class="col-xs-4 col-md-2 hidden-xs glyphicon glyphicon-share"><a href="#">分享</a></div>#}
 {#        <div class="col-xs-4 col-md-2 hidden-xs glyphicon glyphicon-star-empty"><a href="#">{{ post.thanks }}感谢</a></div>#}

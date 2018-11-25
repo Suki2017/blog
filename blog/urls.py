@@ -12,7 +12,11 @@ urlpatterns = [
     url(r'^post/(?P<post_id>[0-9]+)/thank/$', views.add_thank, name='add-thank'),
     url(r'^post/edit/$', views.edit_post, name='edit-post'),
 
+
     url(r'^notes/$', views.notes, name='notes'),
+    url(r'^note/(?P<note_id>[0-9]+)/$', views.note_detail, name='note_detail'),
+    url(r'^notes/category/(?P<category_id>[0-9]+)/$', views.category_notes, name='category-note'),
+
     url(r'^thinks/$', views.thinks, name='thinks'),
     url(r'^message/$', views.message, name='message'),
     url(r'^about/$', views.about, name='about'),

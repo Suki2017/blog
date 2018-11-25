@@ -14,27 +14,28 @@ from .utils import (
 )
 
 
-base_context = {
-    'hot_posts': get_hot_posts(),
-    'pageonholes': pageonhole_count(),
-    'tagclouds': generate_tag_cloud(),
-    'links': friend_links(),
-    'contacts': social_contacts(),
-    'new_post': newest_post(),
-}
+def get_base_context():
+    return {
+        'hot_posts': get_hot_posts(),
+        'pageonholes': pageonhole_count(),
+        'tagclouds': generate_tag_cloud(),
+        'links': friend_links(),
+        'contacts': social_contacts(),
+        'new_post': newest_post(),
+    }
 
 
 def index(request):
     posts = Post.objects.all().order_by('-created_time')
     context = {'posts': posts, 'position': 'index'}
-    context.update(base_context)
+    context.update(get_base_context())
     return render(request, 'blog/index.html', context=context)
 
 
 def posts(request):
     posts = Post.objects.all().order_by('-created_time')
     context = {'posts': posts, 'position': 'posts'}
-    context.update(base_context)
+    context.update(get_base_context())
     return render(request, 'blog/index.html', context=context)
 
 
@@ -49,14 +50,14 @@ def detail(request, post_id):
                                               ]
                                   )
     context = {'post': post, 'position': 'posts'}
-    context.update(base_context)
+    context.update(get_base_context())
     return render(request, 'blog/detail.html', context=context)
 
 
 def category(request, category_id):
     posts = Post.objects.filter(category_id=category_id).all()
     context = {'posts': posts, 'position': 'posts'}
-    context.update(base_context)
+    context.update(get_base_context())
     return render(request, 'blog/index.html', context=context)
 
 
@@ -74,28 +75,50 @@ def edit_post(request):
 def notes(request):
     ns = Note.objects.all()
     context = {'posts': ns, 'position': 'notes'}
-    context.update(base_context)
+    context.update(get_base_context())
+    return render(request, 'blog/notes.html', context=context)
+
+
+def note_detail(request, note_id):
+    note = get_object_or_404(Note, pk=note_id)
+    note.view_count += 1
+    note.save()
+    note.body = markdown.markdown(note.body,
+                                  extensions=['markdown.extensions.extra',
+                                              'markdown.extensions.codehilite',
+                                              'markdown.extensions.toc',
+                                              ]
+                                  )
+    context = {'post': note, 'position': 'notes'}
+    context.update(get_base_context())
+    return render(request, 'blog/note_detail.html', context=context)
+
+
+def category_notes(request, category_id):
+    notes = Note.objects.filter(category_id=category_id).all()
+    context = {'posts': notes, 'position': 'notes'}
+    context.update(get_base_context())
     return render(request, 'blog/notes.html', context=context)
 
 
 def thinks(request):
     ns = Note.objects.all()
     context = {'posts': ns, 'position': 'thinks'}
-    context.update(base_context)
+    context.update(get_base_context())
     return render(request, 'blog/notes.html', context=context)
 
 
 def message(request):
     ns = Note.objects.all()
     context = {'posts': ns, 'position': 'message'}
-    context.update(base_context)
+    context.update(get_base_context())
     return render(request, 'blog/notes.html', context=context)
 
 
 def about(request):
     ns = Note.objects.all()
     context = {'posts': ns, 'position': 'about'}
-    context.update(base_context)
+    context.update(get_base_context())
     return render(request, 'blog/notes.html', context=context)
 
 

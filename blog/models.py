@@ -33,13 +33,13 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=80)
     body = models.TextField()
-    created_time = models.DateTimeField()
-    update_time = models.DateTimeField()
+    created_time = models.DateTimeField(auto_now_add=True, blank=True)
+    update_time = models.DateTimeField(auto_now=True, blank=True)
     category = models.ForeignKey(Category, related_name='category_posts')
     tags = models.ManyToManyField(Tag, related_name='tag_posts')
     excerpt = models.CharField(max_length=255, blank=True)
     author = models.ForeignKey(User, related_name='author_posts')
-    cover_image = models.CharField(max_length=255)
+    cover_image = models.CharField(max_length=255, default='https://s1.ax1x.com/2018/03/12/9f13Hf.jpg')
     view_count = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     thanks = models.IntegerField(default=0)
@@ -110,8 +110,9 @@ class Post(models.Model):
 class Note(models.Model):
     title = models.CharField(max_length=80)
     body = models.TextField()
-    created_time = models.DateTimeField()
-    update_time = models.DateTimeField()
+    excerpt = models.CharField(max_length=255, blank=True)
+    created_time = models.DateTimeField(auto_now_add=True, blank=True)
+    update_time = models.DateTimeField(auto_now=True, blank=True)
     category = models.ForeignKey(Category, related_name='category_notes')
     tags = models.ManyToManyField(Tag, related_name='tag_notes')
     view_count = models.IntegerField(default=0)
@@ -131,6 +132,17 @@ class Note(models.Model):
 
     def __str__(self):
         return self.title[:23]
+
+    def save(self, *args, **kwargs):
+        if not self.excerpt:
+            if len(self.body) < 200:
+                self.excerpt = self.body
+            else:
+                self.excerpt = self.body[:200] + ' ...'
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('blog:note_detail', kwargs={'note_id': self.pk})
 
 
 class FriendLink(models.Model):
